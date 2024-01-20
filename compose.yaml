@@ -1,0 +1,9 @@
+services:
+   websiteserve:
+      build: ./website
+      volumes:
+       - /home/glinren/projects/mathlingo/website/src:/code
+      ports:
+       - "3000:3000"
+      working_dir: /code/keeptrack
+      entrypoint: npm start
