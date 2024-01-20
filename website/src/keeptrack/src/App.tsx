@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import React,{useState} from 'react';
 import './App.css';
 
+import "katex/dist/katex.min.css";
+import Question from "./Question"
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [wasPressed, setWasPressed] = useState(false);
+    function f(wasPressed:boolean) {
+	if (!wasPressed){
+	    return (<button onClick={()=>setWasPressed(true)}>Start</button>)
+	}else {
+	    return (<Question />)
+	}
+    }
+    return (
+	<div className="App">
+	    {f(wasPressed)}
+	</div>
+    );
 }
+
 
 export default App;
