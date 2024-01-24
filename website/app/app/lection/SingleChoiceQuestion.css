@@ -1,0 +1,27 @@
+
+.answer-cover {
+    border-style:solid;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color:#AAAAAA;
+}
+
+
+.answer-selected {
+    background-color: #AADAFF
+}
+.answer-not-selected {
+    background-color:#FFF6AA;
+}
+
+.single-choice-answers-container{
+    display:grid;
+    grid-template-columns: auto auto;
+    padding:30px;
+}
+.single-choice-answer-container {
+    padding:5px 20px;
+
+}
+
+

@@ -10,17 +10,21 @@ const dir = '/website_code'
 const app = next({dev,hostname,port, dir})
 const handle = app.getRequestHandler()
 
+// checks if a string (usually a path) starts with a specific substring.
+function startsWith(path, first){
+    return path.slice(0,first.length) === first
+}
+
 app.prepare().then(()=>{
     createServer(async (req,res) => {
 	const parsedUrl = parse(req.url, true)
 	const {pathname, query} =parsedUrl
-	if (pathname === "/app"){
-	    await app.render(req,res,"/app", query)
-	}else if (pathname === "/mathlingo_api"){
+	if (startsWith(pathname,"/app")){
+	    await app.render(req,res,pathname, query)
+	}else if (startsWith(pathname,"/mathlingo-api")){
 	    console.log("api request")
 	} else{
 	    await handle(req,res,parsedUrl)
-	    console.log("request to",pathname)
 	}
     }).once(
 	'error', (err)=>{
