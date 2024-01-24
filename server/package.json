@@ -1,0 +1,16 @@
+{
+  "name": "mathlingo-server",
+  "version": "0.0.1",
+  "description": "A server for mathlingo",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "node src/server.js",
+    "start": "NODE_ENV=production node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "glinren",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^14.1.0"
+  }
+}

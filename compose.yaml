@@ -1,9 +1,9 @@
 services:
    websiteserve:
-      build: ./website
+      build:
+        dockerfile: ./webserver.Dockerfile
       volumes:
-       - /home/glinren/projects/mathlingo/website/src:/code
+       - ./website:/website_code
       ports:
        - "3000:3000"
-      working_dir: /code/keeptrack
-      entrypoint: npm start
+      
