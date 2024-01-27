@@ -1,9 +1,23 @@
+
 services:
-   websiteserve:
-      build:
-        dockerfile: ./webserver.Dockerfile
-      volumes:
+  websiteserver:
+     env_file:
+       - ./database/db_upw.env
+     build:
+       dockerfile: ./webserver.Dockerfile
+     volumes:
        - ./website:/website_code
-      ports:
+     depends_on:
+       - mathlingo_database
+     ports:
        - "3000:3000"
       
+  mathlingo_database:
+     env_file:
+       - ./database/db_supw.env
+       - ./database/db_upw.env
+     ports:
+       - 5432:5432
+     build:
+       context: ./database
+       dockerfile: db_base.Dockerfile
