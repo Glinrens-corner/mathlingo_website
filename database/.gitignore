@@ -1,0 +1,4 @@
+*.env
+
+# shell file to record test commands
+docker.sh
