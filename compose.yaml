@@ -3,6 +3,7 @@ services:
   websiteserver:
      env_file:
        - ./database/db_upw.env
+       - ./next-auth.env
      build:
        dockerfile: ./webserver.Dockerfile
      volumes:
